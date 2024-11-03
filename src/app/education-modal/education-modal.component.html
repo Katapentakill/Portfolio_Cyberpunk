@@ -1,0 +1,20 @@
+<div class="modal-wrapper">
+    <div class="modal-content open">
+        <div class="educations-container">
+            <div 
+                class="education-item" 
+                *ngFor="let education of educations" 
+                (click)="selectEducation(education)"
+                [ngClass]="{'selected': selectedEducation === education}" 
+            >
+                <img [src]="education.image" [alt]="education.title" />
+            </div>
+        </div>
+
+        <div *ngIf="selectedEducation" class="education-description">
+            <h2 class="education-title">{{ selectedEducation.title }}</h2>
+            <p><strong>{{ languageService.getCurrentLanguage() ? 'Date:' : 'Fecha:' }}</strong> {{ selectedEducation.date }}</p>
+            <p>{{ selectedEducation.description }}</p>
+        </div>
+    </div>
+</div>

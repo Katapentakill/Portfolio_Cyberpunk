@@ -1,0 +1,30 @@
+<div class="modal-wrapper">
+  <div class="modal-content open">
+    <div class="flex flex-col items-center gap-2" style="margin-top: 0px;">
+      <div class="hero-container">
+        <h2
+          class="hero glitch layers uppercase"
+          [attr.data-text]="isEnglish ? text.hello.en : text.hello.es"
+        >
+          <span>{{ isEnglish ? text.hello.en : text.hello.es }}</span>
+        </h2>
+      </div>
+      <div class="hero-container">
+        <h2
+          class="hero glitch layers uppercase"
+          [attr.data-text]="isEnglish ? text.intro.en : text.intro.es"
+        >
+          <span>{{ isEnglish ? text.intro.en : text.intro.es }}</span>
+        </h2>
+      </div>
+      <div class="hero-container">
+        <h2
+          class="hero glitch layers uppercase"
+          [attr.data-text]="isEnglish ? text.roles.en : text.roles.es"
+        >
+          <span>{{ isEnglish ? text.roles.en : text.roles.es }}</span>
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>

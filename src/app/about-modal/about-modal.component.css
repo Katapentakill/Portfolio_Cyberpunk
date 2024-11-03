@@ -1,0 +1,213 @@
+.modal-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 21;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Disable default interaction */
+}
+
+.modal-content {
+    position: relative;
+    width: 85vw;
+    height: 95vh;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 10px solid yellow;
+    border-right: 10px solid yellow;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; /* Align content to the left */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease-in-out;
+    transform: scale(0.8);
+    z-index: 22;
+}
+
+.modal-content.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.responsive-text {
+    text-transform: uppercase;
+    color: #eeeeee;
+    font-family: 'Courier Prime', monospace; /* Monospace font */
+    font-size: 2rem;
+    width: 100%; /* Full-width text */
+}
+
+.left-aligned {
+    text-align: left; /* Left-align text */
+}
+
+
+@media (max-width: 319px) {
+    .modal-content {
+        width: 85vw;
+        height: 75vh;
+        padding: 1.5rem;
+        margin-bottom: 5%;
+    }
+
+    .responsive-text {
+        font-size: 0.495rem;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+    .modal-content {
+        width: 85vw;
+        height: 75vh;
+        padding: 1.2rem;
+        margin-bottom: 5%;
+    }
+
+    .responsive-text {
+        font-size: 0.53rem;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 399px) {
+    .modal-content {
+        width: 85vw;
+        height: 75vh;
+        padding: 1.5rem;
+        margin-bottom: 5%;
+    }
+
+    .responsive-text {
+        font-size: 0.61rem;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 479px) {
+    .modal-content {
+        width: 80vw;
+        height: 75vh;
+        padding: 1.5rem;
+    }
+
+    .responsive-text {
+        font-size: 0.66rem;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 599px) {
+    .modal-content {
+        width: 92vw;
+        height: 62vh;
+        padding: 1rem;
+    }
+
+    .responsive-text {
+        font-size: 0.5rem;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .modal-content {
+        width: 92vw;
+        height: 65vh;
+        padding: 1rem;
+        margin-top: 25px;
+    }
+
+    .responsive-text {
+        font-size: 0.55rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .modal-content {
+        width: 92vw;
+        height: 64vh;
+        padding: 1rem;
+        margin-top: 14px;
+    }
+
+    .responsive-text {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .modal-content {
+        width: 75vw;
+        height: 65vh;
+        padding: 3rem;
+    }
+
+    .responsive-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1365px) {
+    .modal-content {
+        width: 75vw;
+        height: 70vh;
+        padding: 3rem;
+    }
+
+    .responsive-text {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1366px) and (max-width: 1439px) {
+    .modal-content {
+        width: 80vw;
+        height: 55vh;
+        padding: 3.5rem;
+    }
+
+    .responsive-text {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 2499px) {
+    .modal-content {
+        width: 70vw;
+        height: 60vh;
+        padding: 4rem;
+    }
+
+    .responsive-text {
+        font-size: 1.45rem;
+    }
+}
+
+@media (min-width: 2500px) and (max-width: 2999px) {
+    .modal-content {
+        width: 75vw;
+        height: 55vh;
+        padding: 5rem;
+    }
+
+    .responsive-text {
+        font-size: 1.9rem;
+    }
+}
+
+@media (min-width: 3000px) {
+    .modal-content {
+        width: 80vw;
+        height: 60vh;
+        padding: 6rem;
+    }
+
+    .responsive-text {
+        font-size: 2.6rem;
+    }
+}

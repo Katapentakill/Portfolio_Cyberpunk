@@ -1,0 +1,30 @@
+<div class="modal-wrapper">
+    <div class="modal-content open">
+        <div class="projects-container">
+            <div 
+                class="project-item" 
+                *ngFor="let project of projects" 
+                (click)="selectProject(project)"
+                [ngClass]="{'selected': selectedProject === project}" 
+            >
+                <img [src]="project.image" [alt]="project.title" />
+            </div>
+        </div>
+
+        <div *ngIf="selectedProject" class="project-description">
+            <h2 class="project-title">
+                {{ selectedProject.title }}
+                <span class="project-position">Position: {{ selectedProject.position }}</span>
+            </h2>
+            <p class="project-description-text">{{ selectedProject.description }}</p>
+            <div class="technologies-container">
+                <span *ngFor="let tech of selectedProject.technologies" class="technology-badge">{{ tech }}</span>
+            </div>
+            <p>
+                <a [href]="selectedProject.githubLink" target="_blank" class="github-link">
+                    View on GitHub 
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

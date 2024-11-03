@@ -1,0 +1,374 @@
+/* Modal container that centers the modal horizontally and vertically */
+.modal-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 21;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Disable default interaction */
+}
+
+.modal-content {
+    position: relative;
+    width: 85vw;
+    height: 95vh;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 10px solid yellow;
+    border-right: 10px solid yellow;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease-in-out;
+    transform: scale(0.8);
+    z-index: 22;
+}
+
+.modal-content.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* Education container */
+.educations-container {
+    display: grid; /* Use grid for columns */
+    grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+    gap: 20px; /* Space between items */
+    margin-bottom: 10px; /* Space between the carousel and description */
+    width: 100%; /* Ensures the container takes up 100% of the available width */
+}
+
+/* Style for each education item */
+.education-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: border 0.3s ease;
+    border: 2px solid transparent; /* Default border */
+    border-radius: 10px; /* Rounded borders */
+    padding: 10px; /* Inner padding */
+    width: 100%; /* Ensures it takes up the full available width */
+}
+
+/* Style for the image */
+.education-item img {
+    width: 100%; /* Adjusts to the container width */
+    height: auto; /* Maintains image proportion */
+    max-height: 150px; /* Sets a maximum height for images */
+}
+
+/* Style for the selected education item */
+.selected {
+    border: 2px solid yellow; /* Border color when selected */
+}
+
+/* Styles for the education description */
+.education-description {
+    text-align: center;
+    color: #ffffff; /* Text color */
+}
+
+/* Specific styles for the education title */
+.education-title {
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Shadow for emphasis */
+}
+
+/* Responsive text */
+.responsive-text {
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: 'Courier Prime', monospace;
+    font-size: 2rem;
+}
+
+@media (max-width: 319px) {
+    .modal-content {
+        width: 85vw;
+        height: 75vh;
+        padding: 1.5rem;
+        margin-bottom: 5%;
+    }
+
+    .responsive-text {
+        font-size: 1.2rem;
+    }
+
+    .education-item img {
+        width: 100%; 
+        height: auto; 
+        max-height: 100px; 
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+    .modal-content {
+        width: 85vw;
+        height: 75vh;
+        padding: 1.5rem;
+        margin-bottom: 5%;
+    }
+
+    .responsive-text {
+        font-size: 1.3rem;
+    }
+
+    .education-item img {
+        width: 100%;
+        height: auto; 
+        max-height: 100px; 
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 399px) {
+    .modal-content {
+        width: 85vw;
+        height: 75vh;
+        padding: 1.5rem;
+        margin-bottom: 5%;
+    }
+
+    .responsive-text {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 479px) {
+    .modal-content {
+        width: 80vw;
+        height: 75vh;
+        padding: 1.5rem;
+    }
+
+    .responsive-text {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 599px) {
+    .modal-content {
+        width: 92vw;
+        height: 62vh;
+        padding: 1rem;
+    }
+
+    .responsive-text {
+        font-size: 2.2rem;
+    }
+
+    .education-item img {
+        width: 40%; 
+        height: auto; 
+        max-height: 100px; 
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .modal-content {
+        width: 92vw;
+        height: 65vh;
+        padding: 1rem;
+        margin-top: 25px;
+    }
+
+    .responsive-text {
+        font-size: 2.2rem;
+    }
+
+    .education-item img {
+        width: 40%; 
+        height: auto; 
+        max-height: 100px; 
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .modal-content {
+        width: 92vw;
+        height: 64vh;
+        padding: 1rem;
+        margin-top: 14px;
+    }
+
+    .responsive-text {
+        font-size: 2.2rem;
+    }
+
+    .education-item img {
+        width: 40%; 
+        height: auto; 
+        max-height: 100px;
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .modal-content {
+        width: 75vw;
+        height: 65vh;
+        padding: 3rem;
+    }
+
+    .responsive-text {
+        font-size: 2.7rem;
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1365px) {
+    .modal-content {
+        width: 75vw;
+        height: 70vh;
+        padding: 3rem;
+    }
+
+    .responsive-text {
+        font-size: 2.8rem;
+    }
+
+    .responsive-text {
+        font-size: 2.7rem;
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1366px) and (max-width: 1439px) {
+    .modal-content {
+        width: 80vw;
+        height: 55vh;
+        padding: 3.5rem;
+    }
+
+    .responsive-text {
+        font-size: 3rem;
+    }
+
+    .education-item img {
+        width: 70%; 
+        height: auto; 
+        max-height: 250px; 
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 2499px) {
+    .modal-content {
+        width: 70vw;
+        height: 60vh;
+        padding: 4rem;
+    }
+
+    .responsive-text {
+        font-size: 4rem;
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 2500px) and (max-width: 2999px) {
+    .modal-content {
+        width: 75vw;
+        height: 55vh;
+        padding: 5rem;
+    }
+
+    .responsive-text {
+        font-size: 5rem;
+    }
+
+    .education-item img {
+        width: 70%; 
+        height: auto; 
+        max-height: 250px; 
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 2.7rem;
+    }
+}
+
+@media (min-width: 3000px) {
+    .modal-content {
+        width: 80vw;
+        height: 60vh;
+        padding: 6rem;
+    }
+
+    .responsive-text {
+        font-size: 7rem;
+    }
+
+    .education-item img {
+        width: 70%; 
+        height: auto; 
+        max-height: 250px; 
+    }
+
+    .education-description {
+        text-align: center;
+        color: #ffffff; 
+        font-size: 3.1rem;
+    }
+}

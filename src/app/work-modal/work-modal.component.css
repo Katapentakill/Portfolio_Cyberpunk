@@ -1,0 +1,826 @@
+/* Modal container that centers the modal horizontally and vertically */
+.modal-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 21;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Disable default interaction */
+}
+  
+/* Modal base and content */
+.modal-content {
+    position: relative;
+    width: 85vw;
+    height: 95vh;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 10px solid yellow;
+    border-right: 10px solid yellow;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease-in-out;
+    transform: scale(0.8);
+    z-index: 22;
+}
+  
+.modal-content.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* Projects container */
+.projects-container {
+    display: grid; /* Use grid layout for columns */
+    grid-template-columns: repeat(6, 0.5fr); /* Responsive columns */
+    gap: 10px; /* Space between items */
+    margin-bottom: 5px; /* Space between carousel and description */
+    width: 80%; /* Ensure the container is 100% of available width */
+}
+
+/* Style for each project */
+.project-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: border 0.3s ease;
+    border: 2px solid transparent; /* Default border */
+    border-radius: 10px; /* Rounded borders */
+    padding: 5px; /* Internal padding */
+    width: 100%; /* Ensure it takes up the full available width */
+}
+
+/* Style for the image */
+.project-item img {
+    width: 100%; /* Adjusts to the container width */
+    height: 100%; /* Maintains image aspect ratio */
+}
+
+/* Style for selected project */
+.selected {
+    border: 2px solid yellow; /* Border color when selected */
+}
+
+/* Styles for project description */
+.project-description {
+    text-align: center;
+    color: #ffffff; /* Text color */
+}
+
+.project-title {
+    font-size: 1em; /* Increase title size */
+    font-weight: bold; /* Make title bold */
+    margin-bottom: 10px; /* Space below for separation from text */
+    color: #ffffff; /* Text color */
+}
+
+.project-description-text {
+    font-size: 0.8em; /* Increase description size */
+    line-height: 1.5; /* Increase line spacing for better readability */
+    color: #ffffff; /* Text color */
+}
+
+.technologies-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows tags to wrap to next line */
+    gap: 5px; /* Space between tags */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.technology-badge {
+    background-color: #f0f0f0; /* Background for each technology */
+    border: 2px solid yellow;
+    border-radius: 3px; /* Rounded corners */
+    padding: 5px 10px; /* Internal padding */
+    font-size: 14px; /* Font size */
+    opacity: 0.5;
+    color: #000000; /* Text color */
+}
+
+.github-link {
+    display: inline-flex; /* Align arrow with text */
+    align-items: center; /* Center text and arrow vertically */
+    font-size: 18px; /* Font size */
+    color: #ffffff; /* White text color */
+    text-decoration: none; /* No underline */
+    position: relative; /* Relative positioning for neon effect */
+    animation: neonGlow 3s ease-in-out infinite; /* Adds looping animation */
+}
+
+/* Define animation */
+@keyframes neonGlow {
+    0%, 100% {
+        color: #ffffff; /* Base color */
+        filter: drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 15px #ffffff);
+    }
+    50% {
+        color: #ffffff; /* Intermediate color */
+        filter: drop-shadow(0 0 15px #ffffff) drop-shadow(0 0 30px #ffffff) drop-shadow(0 0 45px #ffffff);
+    }
+}
+
+.project-position {
+    font-size: 0.9em; /* Adjust text size as needed */
+    color: gray; /* Change color as desired */
+    margin-left: 10px; /* Left spacing */
+}
+
+
+
+@media (max-width: 319px) {
+    .modal-content {
+        width: 85vw;
+        height: 75vh;
+        padding: 1.5rem;
+        margin-bottom: 5%;
+    }
+
+    .responsive-text {
+        font-size: 1.2rem;
+    }
+
+    .project-title {
+        font-size: 0.7em; 
+        font-weight: bold; 
+        margin-bottom: 10px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.5em; 
+        line-height: 1.5; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 2.5px 5px; 
+        font-size: 9px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 5px; 
+        width: 120%; 
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+    .modal-content {
+        width: 85vw;
+        height: 75vh;
+        padding: 1.5rem;
+        margin-bottom: 5%;
+    }
+
+    .responsive-text {
+        font-size: 1.8rem;
+    }
+
+    .project-title {
+        font-size: 0.65em; 
+        font-weight: bold; 
+        margin-bottom: 10px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.6em; 
+        line-height: 1; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 2.5px 5px; 
+        font-size: 9px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 5px; 
+        width: 120%; 
+    }
+}
+
+@media (min-width: 360px) and (max-width: 399px) {
+    .modal-content {
+        width: 85vw;
+        height: 75vh;
+        padding: 1.5rem;
+        margin-bottom: 5%;
+    }
+
+    .responsive-text {
+        font-size: 1.8rem;
+    }
+
+
+    .project-title {
+        font-size: 0.75em; 
+        font-weight: bold; 
+        margin-bottom: 10px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.7em; 
+        line-height: 1; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 2.5px 5px; 
+        font-size: 9px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 5px; 
+        width: 120%; 
+    }
+}
+
+@media (min-width: 400px) and (max-width: 479px) {
+    .modal-content {
+        width: 80vw;
+        height: 75vh;
+        padding: 1.5rem;
+    }
+
+    .responsive-text {
+        font-size: 2rem;
+    }
+
+    .project-title {
+        font-size: 0.95em; 
+        font-weight: bold; 
+        margin-bottom: 10px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.75em; 
+        line-height: 1.5; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 3px 8px; 
+        font-size: 11px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 5px; 
+        width: 120%; 
+    }
+}
+
+@media (min-width: 480px) and (max-width: 599px) {
+    .modal-content {
+        width: 92vw;
+        height: 62vh;
+        padding: 1rem;
+    }
+
+    .responsive-text {
+        font-size: 2.2rem;
+    }
+
+    .project-title {
+        font-size: 0.6em; 
+        font-weight: bold; 
+        margin-bottom: 1px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.5em; 
+        line-height: 1; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 3px 8px; 
+        font-size: 4px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 2px; 
+        width: 50%; 
+    }
+
+    .github-link {
+        display: inline-flex; 
+        align-items: center; 
+        font-size: 8px; 
+        color: #ffffff; 
+        text-decoration: none; 
+        position: relative; 
+        animation: neonGlow 3s ease-in-out infinite; 
+    }
+}
+
+@media (min-width: 600px) and (max-width: 659px) {
+    .modal-content {
+        width: 92vw;
+        height: 65vh;
+        padding: 1rem;
+        margin-top: 25px;
+    }
+
+    .responsive-text {
+        font-size: 2.2rem;
+    }
+
+    .project-title {
+        font-size: 0.55em; 
+        font-weight: bold; 
+        margin-bottom: 0.5px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.45em; 
+        line-height: 1; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 2px; 
+        padding: 2px 5px; 
+        font-size: 7px;
+        opacity: 0.5;
+        color: #000000;
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 0px; 
+        width: 45%; 
+    }
+
+    .github-link {
+        display: inline-flex;
+        align-items: center; 
+        font-size: 6px; 
+        color: #ffffff; 
+        text-decoration: none; 
+        position: relative; 
+        animation: neonGlow 3s ease-in-out infinite; 
+    }
+}
+
+@media (min-width: 660px) and (max-width: 767px) {
+    .modal-content {
+        width: 92vw;
+        height: 65vh;
+        padding: 1rem;
+        margin-top: 25px;
+    }
+
+    .responsive-text {
+        font-size: 2.2rem;
+    }
+
+    .project-title {
+        font-size: 0.75em; 
+        font-weight: bold; 
+        margin-bottom: 0.5px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.65em; 
+        line-height: 1; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 2px; 
+        padding: 2px 5px; 
+        font-size: 7px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 0px; 
+        width: 55%; 
+    }
+
+    .github-link {
+        display: inline-flex; 
+        align-items: center; 
+        font-size: 9px; 
+        color: #ffffff; 
+        text-decoration: none; 
+        position: relative; 
+        animation: neonGlow 3s ease-in-out infinite; 
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .modal-content {
+        width: 92vw;
+        height: 64vh;
+        padding: 1rem;
+        margin-top: 14px;
+    }
+
+    .responsive-text {
+        font-size: 2.2rem;
+    }
+
+    .project-title {
+        font-size: 0.8em; 
+        font-weight: bold; 
+        margin-bottom: 1px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.8em; 
+        line-height: 1; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 2px; 
+        padding: 2px 7px; 
+        font-size: 10px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 1px; 
+        width: 50%; 
+    }
+
+    .github-link {
+        display: inline-flex; 
+        align-items: center; 
+        font-size: 10px; 
+        color: #ffffff; 
+        text-decoration: none; 
+        position: relative; 
+        animation: neonGlow 3s ease-in-out infinite; 
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .modal-content {
+        width: 75vw;
+        height: 65vh;
+        padding: 3rem;
+    }
+
+    .responsive-text {
+        font-size: 2.7rem;
+    }
+
+    .project-title {
+        font-size: 1.15em; 
+        font-weight: bold; 
+        margin-bottom: 3px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.9em; 
+        line-height: 1; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 3px 8px; 
+        font-size: 10px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 5px; 
+        width: 100%; 
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1365px) {
+    .modal-content {
+        width: 75vw;
+        height: 70vh;
+        padding: 3rem;
+    }
+
+    .responsive-text {
+        font-size: 2.8rem;
+    }
+
+    .project-title {
+        font-size: 1.4em; 
+        font-weight: bold; 
+        margin-bottom: 10px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 1.15em; 
+        line-height: 1.5; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 3px 8px; 
+        font-size: 15px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 5px; 
+        width: 100%; 
+    }
+}
+
+@media (min-width: 1366px) and (max-width: 1439px) {
+    .modal-content {
+        width: 80vw;
+        height: 55vh;
+        padding: 3.5rem;
+    }
+
+    .responsive-text {
+        font-size: 3rem;
+    }
+
+    .project-item img {
+        width: 80%; 
+        height: 80%; 
+    }
+
+    .project-title {
+        font-size: 1em; 
+        font-weight: bold; 
+        margin-bottom: 10px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 0.85em; 
+        line-height: 1.2; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 3px 8px; 
+        font-size: 15px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 5px; 
+        width: 100%; 
+    }
+
+    .github-link {
+        display: inline-flex; 
+        align-items: center; 
+        font-size: 18px; 
+        color: #ffffff; 
+        text-decoration: none; 
+        position: relative; 
+        animation: neonGlow 3s ease-in-out infinite; 
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 2499px) {
+    .modal-content {
+        width: 70vw;
+        height: 60vh;
+        padding: 4rem;
+    }
+
+    .responsive-text {
+        font-size: 4rem;
+    }
+
+    .project-title {
+        font-size: 1.25em; 
+        font-weight: bold; 
+        margin-bottom: 2px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 1.05em; 
+        line-height: 1.5; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 2px 7px; 
+        font-size: 15px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 5px;
+        width: 100%; 
+    }
+}
+
+@media (min-width: 2500px) and (max-width: 2999px) {
+    .modal-content {
+        width: 75vw;
+        height: 55vh;
+        padding: 5rem;
+    }
+
+    .responsive-text {
+        font-size: 5rem;
+    }
+
+    .project-title {
+        font-size: 1.8em; 
+        font-weight: bold; 
+        margin-bottom: 10px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 1.55em; 
+        line-height: 1.5; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px;
+        padding: 3px 8px; 
+        font-size: 30px; 
+        opacity: 0.5;
+        color: #000000; 
+    }
+
+    .projects-container {
+        display: grid; 
+        grid-template-columns: repeat(6, 0.5fr); 
+        gap: 5px; 
+        margin-bottom: 5px; 
+        width: 100%; 
+    }
+
+    .github-link {
+        display: inline-flex; 
+        align-items: center; 
+        font-size: 34px; 
+        color: #ffffff; 
+        text-decoration: none; 
+        position: relative; 
+        animation: neonGlow 3s ease-in-out infinite; 
+    }
+}
+
+@media (min-width: 3000px) {
+    .modal-content {
+        width: 80vw;
+        height: 60vh;
+        padding: 6rem;
+    }
+
+    .responsive-text {
+        font-size: 7rem;
+    }
+
+    .project-title {
+        font-size: 3.35em; 
+        font-weight: bold; 
+        margin-bottom: 10px; 
+        color: #ffffff; 
+    }
+    
+    .project-description-text {
+        font-size: 3.05em; 
+        line-height: 1.5; 
+        color: #ffffff; 
+    }
+    
+    .technology-badge {
+        background-color: #f0f0f0; 
+        border: 2px solid yellow;
+        border-radius: 3px; 
+        padding: 3px 8px; 
+        font-size: 35px; 
+        opacity: 0.5;
+        color: #000000;
+    }
+
+    .projects-container {
+        display: grid;
+        grid-template-columns: repeat(6, 0.5fr);
+        gap: 5px;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+
+    .github-link {
+        display: inline-flex;
+        align-items: center;
+        font-size: 35px;
+        color: #ffffff;
+        text-decoration: none;
+        position: relative;
+        animation: neonGlow 3s ease-in-out infinite;
+    }
+}
