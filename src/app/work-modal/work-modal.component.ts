@@ -269,7 +269,7 @@ export class WorkModalComponent implements OnInit, OnDestroy {
               "Tailwind"
             ],
             image: "assets/gif/descarga.gif",
-            githubLink: "https://github.com/Katapentakill/Solo-links/tree/main",
+            githubLink: "https://github.com/Katapentakill/Portfolio_Cyberpunk",
             position: isEnglish ? "[N/A]" : "[N/A]"
           },
       ];      
