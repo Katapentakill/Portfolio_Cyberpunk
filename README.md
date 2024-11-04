@@ -1,6 +1,29 @@
 # Combine3
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (which includes npm)
+
+## Installation
+
+1. Install the Angular CLI globally:
+    ```bash
+    npm install -g @angular/cli@latest
+    ```
+
+2. Install Tailwind CSS:
+    ```bash
+    npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+    ```
+
+3. Initialize Tailwind CSS in your project:
+    ```bash
+    npx tailwindcss init
+    ```
 
 ## Development server
 
@@ -24,4 +47,19 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Tailwind CSS Configuration
+
+To use Tailwind CSS in your project, add the following to your `tailwind.config.js` file:
+
+```javascript
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
