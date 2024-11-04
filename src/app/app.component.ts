@@ -29,7 +29,7 @@ export class AppComponent {
   constructor(private languageService: LanguageService) {
     // Initialize the audio element with the specified file and settings
     this.audio = new Audio('../assets/music/slowed.mp3');
-    this.audio.volume = 0.15;  // Set the volume level
+    this.audio.volume = 0.2;  // Set the volume level
     this.audio.loop = true;    // Enable looping
 
     // Start the music playback
