@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../app/language.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { LanguageService } from '../app/language.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   // Object to manage the visibility of modals
   modals = {
     home: false,
@@ -32,9 +32,6 @@ export class AppComponent {
     this.audio.volume = 0.2;  // Set the volume level
     this.audio.loop = true;    // Enable looping
 
-    // Start the music playback
-    this.audio.play();
-
     // Initialize the language state based on the current value from LanguageService
     this.isEnglish = this.languageService.getCurrentLanguage();
 
@@ -42,6 +39,12 @@ export class AppComponent {
     this.languageService.language$.subscribe((language) => {
       this.isEnglish = language;
     });
+  }
+
+  // ngOnInit lifecycle hook to start music playback
+  ngOnInit() {
+    // Start the music playback
+    this.audio.play();
   }
 
   // Method to toggle the language by calling LanguageService
